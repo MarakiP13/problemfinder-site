@@ -1,0 +1,23 @@
+v1.2: Turn this into ranked problems
+
+Now we:
+
+Cluster similar Reddit posts
+
+Detect repeating pain patterns
+
+Rank by:
+
+Frequency
+
+Comment intensity
+
+Cross-post similarity
+
+Output:
+
+“Top problems this month”
+
+With links as evidence
+
+This is where ProblemFinder becomes sellable, not just functional.
