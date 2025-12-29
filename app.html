@@ -1,0 +1,38 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ProblemFinder App</title>
+</head>
+<body>
+  <h2>Run Scan</h2>
+
+  <label>Worker URL</label><br>
+  <input id="worker" placeholder="https://your-worker.workers.dev"><br><br>
+
+  <label>Reddit keyword</label><br>
+  <input id="q" placeholder="e.g. invoicing"><br><br>
+
+  <label>Subreddit (optional)</label><br>
+  <input id="sub" placeholder="SaaS"><br><br>
+
+  <button onclick="run()">Run Reddit Scan</button>
+
+  <pre id="out"></pre>
+
+<script>
+async function run(){
+  const url = document.getElementById("worker").value.replace(/\/+$/,"") + "/reddit/search";
+  const res = await fetch(url,{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({query:document.getElementById("q").value,subreddit:document.getElementById("sub").value})
+  });
+  const j = await res.json();
+  document.getElementById("out").textContent = JSON.stringify(j,null,2);
+}
+</script>
+</body>
+</html>
